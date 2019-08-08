@@ -1,19 +1,10 @@
 import Vue from 'vue';
-import store from './store';
+import MainContent from './views/main-content';
+import andyRoom from './img/andyroom.jpg';
+import ball from './img/ball.png';
+import buzzFly from './img/buzzfly.gif';
+import './styles/main.scss';
 
-var vm = new Vue({
-    el: '#app',
-    computed: {
-        currentPage() {
-            return store.state.currentPage;
-        }
-    },
-    methods: {
-        prevPage() {
-            store.commit('prevPage');
-        },
-        nextPage() {
-            store.commit('nextPage');
-        }
-    }
-});
+let MainComponent = Vue.extend(MainContent);
+
+new MainComponent().$mount("#mainContent");

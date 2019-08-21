@@ -72,6 +72,9 @@
     }
 </style>
 <script>
+import andyRoom from '../img/andyroom.jpg';
+import ball from '../img/ball.png';
+import buzzFly from '../img/buzzfly.gif';
 import { TimelineMax, TweenMax, Bounce, Power2 } from 'gsap';
 
 export default {

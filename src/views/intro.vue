@@ -62,6 +62,7 @@
     .intro {
         width: 100%;
         height: 100%;
+        position: fixed;
         background-image: url('../img/stars.jpg');
         background-size: repeat;
         background-position: center;

@@ -1,15 +1,24 @@
 <template>
     <div class="webAnimationSlidesContainer">
-        web animation Slides
+        <css-animation v-if="currentPage === pageIndex.CSS"></css-animation>
+        <canvas-animation v-if="currentPage === pageIndex.CANVAS"></canvas-animation>
+        <js-libs v-if="currentPage === pageIndex.LIBS"></js-libs>
     </div>
 </template>
 <script>
-
     import store from '../../store/store.js';
     import pages from '../../store/pageIndex.js';
+    import CssAnimation from './Slides/css-animation.vue';
+    import CanvasAnimation from './Slides/canvas-animation.vue';
+    import JsLibs from './Slides/js-libs.vue';
 
     export default {
         name: 'web-animation-slides',
+        components: {
+            CssAnimation,
+            CanvasAnimation,
+            JsLibs,
+        },
         computed: {
             currentPage() {
                 return store.state.currentPage;

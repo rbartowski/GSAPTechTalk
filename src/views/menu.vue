@@ -1,5 +1,5 @@
 <template>
-    <div class="menu">
+    <div class="menu slideContainer">
             <div class="title">
                 <h2>GSAP ANIMATIONS</h2>
                 <div class="legend">
@@ -11,9 +11,9 @@
                         <h3>Animation 101</h3>
                         <div class="sectionContent">
                             <ul>
-                                <li><span>Brief Animation Story</span></li>
-                                <li><span>Core concepts</span></li>
-                                <li><span>Interpolation</span></li>
+                                <li><span @click="changePage(pageIndex.STORY)">A Brief History of Animation</span></li>
+                                <li><span @click="changePage(pageIndex.CONCEPTS)">Core concepts</span></li>
+                                <li><span @click="changePage(pageIndex.INTERPOLATION)">Interpolation</span></li>
                             </ul>
                         </div>
                     </div>
@@ -21,9 +21,9 @@
                         <h3>Web Animation</h3>
                         <div class="sectionContent">
                             <ul>
-                                <li><span>CSS</span></li>
-                                <li><span>Canvas</span></li>
-                                <li><span>Libs</span></li>
+                                <li><span @click="changePage(pageIndex.CSS)">CSS</span></li>
+                                <li><span @click="changePage(pageIndex.CANVAS)">Canvas</span></li>
+                                <li><span @click="changePage(pageIndex.LIBS)">Libs</span></li>
                             </ul>
                         </div>
                     </div>
@@ -31,10 +31,10 @@
                         <h3>GSAP!</h3>
                         <div class="sectionContent">
                             <ul>
-                                <li><span>Why GSAP?</span></li>
-                                <li><span>TweenMax</span></li>
-                                <li><span>TimelineMax</span></li>
-                                <li><span>Easing</span></li>
+                                <li><span @click="changePage(pageIndex.WHY_GSAP)">Why GSAP?</span></li>
+                                <li><span @click="changePage(pageIndex.TWEENMAX)">TweenMax</span></li>
+                                <li><span @click="changePage(pageIndex.TIMELINEMAX)">TimelineMax</span></li>
+                                <li><span @click="changePage(pageIndex.EASING)">Easing</span></li>
                             </ul>
                         </div>
                     </div>
@@ -45,6 +45,7 @@
 <script>
     import { TweenMax, TimelineMax, Power4, Bounce } from 'gsap';
     import store from '../store/store.js';
+    import PAGES from '../store/pageIndex.js';
 
     export default {
         name: "main-menu",
@@ -56,14 +57,19 @@
         computed: {
             currentPage() {
                 return store.state.currentPage;
-            }
+            },
+            pageIndex() {
+                return PAGES;
+            },
         },
         methods: {
             setElements() {
                 this.titleH2 = this.$el.querySelector('.title h2');
                 this.titleLegend = this.$el.querySelector('.title .legend');
                 this.sectionColumns = this.$el.querySelectorAll('.sectionColumn');
-                console.log(this.sectionColumns);
+            },
+            changePage(page) {
+                store.commit('setCurrentPage', page);
             },
             calculateLegendPosition() {
                 this.titleLegend.style.top = `${this.titleH2.clientHeight / 2 - this.titleLegend.clientHeight}px`;
@@ -102,25 +108,9 @@
 
 <style lang="scss" scoped>
     .menu {
-        width: 100%;
-        height: 100%;
-        position: fixed;
         background-image: url('../img/andyroomsky.jpg');
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        opacity: 0;
 
         .title {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-
-
             .legend {
                 display: flex;
                 justify-content: center;
@@ -133,15 +123,6 @@
                 font-weight: bold;
                 transform: rotate(-20deg);
                 position: absolute;
-            }
-
-            h2 {
-                width: 50vw;
-                text-align: center;
-                font-size: 5em;
-                color: white;
-                margin: 0;
-                font-family: 'Indie Flower', cursive;
             }
         }
 

@@ -1,13 +1,13 @@
 <template>
     <div class="main-footer">
         <div class="leftArrowContainer">
-            <img v-show="currentPage > 1" class="leftArrow" src="../img/right_arrow.png" />
+            <img @click="movePrevPage()" v-show="currentPage > 1" class="leftArrow" src="../img/right_arrow.png" />
         </div>
         <div class="logoContainer">
             <img class="valtechLogo" src="../img/valtech_logo_white.png" />
         </div>
         <div class="rightArrowContainer">
-            <img  v-show="currentPage > 0" class="rightArrow" src="../img/right_arrow.png" />
+            <img @click="moveNextPage()" v-show="currentPage > 0" class="rightArrow" src="../img/right_arrow.png" />
         </div>
     </div>
 </template>
@@ -54,9 +54,14 @@
 
             img {
                 transform: rotate(180deg);
-                width: 50%;
+                width: 30%;
                 cursor: pointer;
                 margin-top: 10px;
+
+                &:hover {
+                    transform: rotate(180deg) scale(1.2);
+                    transition: transform 0.5s;
+                }
             }
         }
 
@@ -74,9 +79,14 @@
             text-align: center;
 
             img {
-                width: 50%;
+                width: 30%;
                 cursor: pointer;
                 margin-top: 10px;
+
+                &:hover {
+                    transform: scale(1.2);
+                    transition: transform 0.5s;
+                }
             }
         }
     }

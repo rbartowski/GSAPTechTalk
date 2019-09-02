@@ -66,6 +66,7 @@
                 background-color: white;
                 margin: 15px;
                 height: 100%;
+                border-radius: 3px;
 
                 h3 {
                     color: black;

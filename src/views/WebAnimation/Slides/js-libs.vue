@@ -1,6 +1,8 @@
 <template>
     <div class="jsLibAnimation slideContainer">
-        Js lib
+        <div class="title">
+            <h2>JS LIBS</h2>
+        </div>
     </div>
 </template>
 <script>
@@ -10,6 +12,7 @@
 </script>
 <style lang="scss" scoped>
     .jsLibAnimation {
+        background-image: url('../../../img/andyroomsky.jpg');
 
     }
 </style>

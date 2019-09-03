@@ -22,7 +22,7 @@
                         <div class="sectionContent">
                             <ul>
                                 <li><span @click="changePage(pageIndex.CSS)">CSS</span></li>
-                                <li><span @click="changePage(pageIndex.CANVAS)">Canvas</span></li>
+                                <li><span @click="changePage(pageIndex.CANVAS)">Request Animation Frame</span></li>
                                 <li><span @click="changePage(pageIndex.LIBS)">Libs</span></li>
                             </ul>
                         </div>

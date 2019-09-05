@@ -4,6 +4,7 @@
         <tween-max-slide v-if="currentPage === pageIndex.TWEENMAX"></tween-max-slide>
         <timeline-max-slide v-if="currentPage === pageIndex.TIMELINEMAX"></timeline-max-slide>
         <easing v-if="currentPage === pageIndex.EASING"></easing>
+        <cheat-sheet v-if="currentPage === pageIndex.CHEAT_SHEET"></cheat-sheet>
     </div>
 </template>
 <script>
@@ -11,6 +12,7 @@
     import store from '../../store/store.js';
     import pages from '../../store/pageIndex.js';
     import WhyGsap from './Slides/why-gsap.vue';
+    import CheatSheet from './Slides/cheat-sheet.vue';
     import TweenMaxSlide from './Slides/tween-max.vue';
     import TimelineMaxSlide from './Slides/timeline-max.vue';
     import Easing from './Slides/easing.vue';
@@ -22,6 +24,7 @@
             TweenMaxSlide,
             TimelineMaxSlide,
             Easing,
+            CheatSheet,
         },
         computed: {
             currentPage() {

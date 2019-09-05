@@ -2,7 +2,7 @@
     <div class="menu slideContainer">
             <div class="title">
                 <h2>GSAP ANIMATIONS</h2>
-                <div class="legend">
+                <div @click="changePage(pageIndex.EXCERCISE)" class="legend">
                     <span>WORKSHOP!</span>
                 </div>
             </div>
@@ -22,6 +22,7 @@
                         <div class="sectionContent">
                             <ul>
                                 <li><span @click="changePage(pageIndex.CSS)">CSS</span></li>
+                                <li><span @click="changePage(pageIndex.CSS_KEYFRAMES)">CSS Keyframes</span></li>
                                 <li><span @click="changePage(pageIndex.CANVAS)">Request Animation Frame</span></li>
                                 <li><span @click="changePage(pageIndex.LIBS)">Libs</span></li>
                             </ul>
@@ -35,6 +36,7 @@
                                 <li><span @click="changePage(pageIndex.TWEENMAX)">TweenMax</span></li>
                                 <li><span @click="changePage(pageIndex.TIMELINEMAX)">TimelineMax</span></li>
                                 <li><span @click="changePage(pageIndex.EASING)">Easing</span></li>
+                                <li><span @click="changePage(pageIndex.CHEAT_SHEET)">Cheat Sheet</span></li>
                             </ul>
                         </div>
                     </div>
@@ -112,6 +114,7 @@
 
         .title {
             .legend {
+                cursor: pointer;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -128,7 +131,7 @@
 
         .slidesContent {
             width: 100%;
-            height: 55vh;
+            height: 61vh;
             display: flex;
             max-width: 1440px;
             position: absolute;

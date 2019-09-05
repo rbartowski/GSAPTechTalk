@@ -5,13 +5,15 @@ const pages = {
     CONCEPTS: 3,
     INTERPOLATION: 4,
     CSS: 5,
-    CANVAS: 6,
-    LIBS: 7,
-    WHY_GSAP: 8,
-    TWEENMAX: 9,
-    TIMELINEMAX: 10,
-    EASING: 11,
-    EXCERCISE: 12,
+    CSS_KEYFRAMES: 6,
+    CANVAS: 7,
+    LIBS: 8,
+    WHY_GSAP: 9,
+    TWEENMAX: 10,
+    TIMELINEMAX: 11,
+    EASING: 12,
+    CHEAT_SHEET: 13,
+    EXCERCISE: 14,
 };
 
 export default pages;

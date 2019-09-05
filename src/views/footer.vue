@@ -4,10 +4,10 @@
             <img @click="movePrevPage()" v-show="currentPage > 1" class="leftArrow" src="../img/right_arrow.png" />
         </div>
         <div class="logoContainer">
-            <img class="valtechLogo" src="../img/valtech_logo_white.png" />
+            <img @click="goHome()" class="valtechLogo" src="../img/valtech_logo_white.png" />
         </div>
         <div class="rightArrowContainer">
-            <img @click="moveNextPage()" v-show="currentPage > 0" class="rightArrow" src="../img/right_arrow.png" />
+            <img @click="moveNextPage()" v-show="currentPage > 0 && currentPage !== pageIndex.EXCERCISE" class="rightArrow" src="../img/right_arrow.png" />
         </div>
     </div>
 </template>
@@ -16,6 +16,7 @@
     import valtechLogo from '../img/valtech_logo_white.png';
     import arrow from '../img/right_arrow.png';
     import store from '../store/store.js';
+    import pageIndex from '../store/pageIndex.js';
 
     export default {
         name: "main-footer",
@@ -24,6 +25,9 @@
         computed: {
             currentPage() {
                 return store.state.currentPage;
+            },
+            pageIndex() {
+                return pageIndex;
             }
         },
         methods: {
@@ -33,7 +37,11 @@
 
             movePrevPage() {
                 store.commit('setCurrentPage', this.currentPage - 1);
-            }
+            },
+
+            goHome() {
+                store.commit('setCurrentPage', 1);
+            },
         },
         data: () => ({
         }),
@@ -47,6 +55,7 @@
         display: flex;
         height: 12vh;
         width: 100%;
+        z-index: 10;
 
         .leftArrowContainer {
             width: 15vw;
@@ -71,6 +80,7 @@
 
             img {
                 height: 50%;
+                cursor: pointer;
             }
         }
 

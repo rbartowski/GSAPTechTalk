@@ -45,10 +45,10 @@
                 return [pages.STORY, pages.CONCEPTS, pages.INTERPOLATION].includes(this.currentPage);
             },
             isDisplayingWebAnimationSlides() {
-                return [pages.CSS, pages.CANVAS, pages.LIBS].includes(this.currentPage);
+                return [pages.CSS, pages.CSS_KEYFRAMES, pages.CANVAS, pages.LIBS].includes(this.currentPage);
             },
             isDisplayingGSAPSlides() {
-                return [pages.WHY_GSAP, pages.TWEENMAX, pages.TIMELINEMAX, pages.EASING].includes(this.currentPage);
+                return [pages.WHY_GSAP, pages.TWEENMAX, pages.TIMELINEMAX, pages.EASING, pages.CHEAT_SHEET].includes(this.currentPage);
             }
         },
     };

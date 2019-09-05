@@ -69,11 +69,11 @@
             staggerTo() {
                 this.setY();
                 TweenMax.staggerTo(this.images, 1, {y: this.posY}, 0.5);
-                this.currentTween = 'TweenMax.staggerTo([elements], duration, {y: value})';
+                this.currentTween = 'TweenMax.staggerTo([elements], duration, {y: value}, staggerDuration)';
             },
             staggerFrom() {
                 TweenMax.staggerFrom(this.images, 1, {y: this.getY()}, 0.5);
-                this.currentTween = 'TweenMax.staggerFrom([elements], duration, {y: value})';
+                this.currentTween = 'TweenMax.staggerFrom([elements], duration, {y: value}, staggerDuration)';
             },
             tweenToCallback() {
                 this.tweenTo(this.increaseCount);

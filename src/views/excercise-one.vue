@@ -3,9 +3,9 @@
         <img class="logo" src="../img/logo.png" alt="logo" v-on:click="playBallAnimation()"/>
         <img class="ball" src="../img/ball.png" alt="ball" />
         <img class="floor" src="../img/floor.png" alt="floor" />
-        <img class="buzzFly" src="../img/buzzfly.gif" alt="buzzFly" v-on:mouseenter="playBuzzFlyAnimation()"/>
-        <img class="rex" src="../img/rex.gif" alt="rex" v-on:click="playRexHideAnimation()" />
-        <img class="missPotato" src="../img/misspotato.png" v-on:click="playRexShowAnimation()" />
+        <img class="buzzFly" src="../img/buzzfly.gif" alt="buzzFly" @mouseenter="playBuzzFlyAnimation()"/>
+        <img class="rex" src="../img/rex.gif" alt="rex" @click="playRexHideAnimation()" />
+        <img class="missPotato" src="../img/misspotato.png" @:click="playRexShowAnimation()" />
     </div>
 </template>
 <style lang="scss">

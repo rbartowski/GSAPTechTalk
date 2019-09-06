@@ -1,11 +1,11 @@
 <template>
     <div class="excercise-one">
-        <img class="logo" src="../img/logo.png" alt="logo" v-on:click="playBallAnimation()"/>
+        <img class="logo" src="../img/logo.png" alt="logo" @mouseenter="playLogoTranslate()" @click="playBallAnimation()"/>
         <img class="ball" src="../img/ball.png" alt="ball" />
         <img class="floor" src="../img/floor.png" alt="floor" />
-        <img class="buzzFly" src="../img/buzzfly.gif" alt="buzzFly" @mouseenter="playBuzzFlyAnimation()"/>
+        <img class="buzzFly" src="../img/buzzfly.gif" alt="buzzFly" @click="playBuzzFlyAnimation()"/>
         <img class="rex" src="../img/rex.gif" alt="rex" @click="playRexHideAnimation()" />
-        <img class="missPotato" src="../img/misspotato.png" @:click="playRexShowAnimation()" />
+        <img class="missPotato" src="../img/misspotato.png" @click="playRexShowAnimation()" />
     </div>
 </template>
 <style lang="scss">
@@ -24,6 +24,7 @@
             left: 0;
             right: 0;
             margin: auto;
+            z-index: 9;
         }
 
         .ball {
@@ -46,6 +47,7 @@
         }
 
         .buzzFly {
+            cursor: pointer;
             width: 20vh;
             position: absolute;
             bottom: calc(26.8vh - 10px);
@@ -80,6 +82,7 @@ import { TimelineMax, TweenMax, Bounce, Power2 } from 'gsap';
 export default {
     name: 'excercise-one',
     mounted() {
+            this.logo = this.$el.querySelector('.logo');
             this.ball = this.$el.querySelector('.ball');
             this.floor = this.$el.querySelector('.floor');
             this.buzzFlyGif = this.$el.querySelector('.buzzFly');
@@ -87,6 +90,15 @@ export default {
             this.missPotato = this.$el.querySelector('.missPotato');
         },
     methods: {
+        playLogoTranslate() {
+            if (!this.isPlayingLogoTranslate) {
+                this.isPlayingLogoTranslate = true;
+                TweenMax.to(this.logo, 1, {
+                    y: 150,
+                    onComplete: this.onLogoTranslateComplete,
+                });
+            }
+        },
         playBallAnimation() {
             if (!this.isPlayingAnimation) {
                 const floorY = document.documentElement.clientHeight - this.floor.clientHeight;
@@ -188,6 +200,10 @@ export default {
 
         onRexShowFinished() {
             this.isPlayingRexShowAnimation = false;
+        },
+
+        onLogoTranslateComplete() {
+            this.isPlayingLogoTranslate = false;
         }
     }
 }

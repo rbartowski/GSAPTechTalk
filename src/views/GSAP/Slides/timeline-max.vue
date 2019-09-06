@@ -124,7 +124,7 @@ tl.time();
                 }, '+=1.5')
                 .to(this.getStepElement(this.step), 1, {
                     opacity: 1,
-                }, '-=1');;
+                }, '-=1');
             },
             getCarPos(step) {
                 const stepElement = this.getStepElement(step);
